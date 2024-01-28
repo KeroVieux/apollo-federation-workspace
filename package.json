@@ -1,0 +1,35 @@
+{
+  "name": "apollo-federation-workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:book": "npm run start --workspace=book",
+    "start:car": "npm run start --workspace=car",
+    "start:people": "npm run start --workspace=people",
+    "generate:supergraph": "npm run supergraph --workspace=gateway",
+    "start:gateway": "npm run start --workspace=gateway"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/gateway",
+    "packages/book",
+    "packages/car",
+    "packages/people"
+  ],
+  "dependencies": {
+    "@apollo/server": "^4.10.0",
+    "graphql": "^16.8.1",
+    "@apollo/subgraph": "^2.7.1",
+    "graphql-tag": "^2.12.6"
+  },
+  "devDependencies": {
+    "@apollo/rover": "^0.22.0",
+    "@types/node": "^20.11.7",
+    "typescript": "^5.3.3"
+  }
+}
