@@ -12,6 +12,7 @@ type People {
 
 type Query {
     people: [People]
+    peopleById(id: ID!): People
 }
 `;
 
@@ -29,14 +30,25 @@ const people = [
 const resolvers = {
     Query: {
         people: () => people,
+        peopleById(parent, args, contextValue, info) {
+            console.log('parent', parent)
+            console.log('args', args)
+            console.log('contextValue', contextValue)
+            console.log('contextValue', info)
+            return people[0]
+        }
     },
 };
 
 const server = new ApolloServer({
     schema: buildSubgraphSchema({ typeDefs, resolvers }),
+    csrfPrevention: { requestHeaders: ['x-user-id'] }
 });
 
 const { url } = await startStandaloneServer(server, {
+    context: async ({ req, res }) => ({
+        headers: req.headers,
+    }),
     listen: { port: 4003 },
 });
 

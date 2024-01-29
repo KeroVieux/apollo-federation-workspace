@@ -1,5 +1,8 @@
 federation_version: =2.3.2
 subgraphs:
+  pet:
+    schema:
+      subgraph_url: http://127.0.0.1:4004
   car:
     schema:
       subgraph_url: http://127.0.0.1:4002

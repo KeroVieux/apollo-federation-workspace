@@ -9,6 +9,7 @@
     "start:book": "npm run start --workspace=book",
     "start:car": "npm run start --workspace=car",
     "start:people": "npm run start --workspace=people",
+    "start:pet": "npm run start --workspace=pet",
     "generate:supergraph": "npm run supergraph --workspace=gateway",
     "start:gateway": "npm run start --workspace=gateway"
   },
@@ -19,6 +20,7 @@
     "packages/gateway",
     "packages/book",
     "packages/car",
+    "packages/pet",
     "packages/people"
   ],
   "dependencies": {
